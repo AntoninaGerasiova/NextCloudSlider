@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="server_base_url">https://cloud.gerasiov.net</string>
+    <string name="username">tony</string>
+    <string name="password">mehaalilawifl</string>
+</resources>

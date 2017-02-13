@@ -1,6 +1,8 @@
 package net.gerasiov.antonina.nextcloudslider;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +11,17 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.owncloud.android.lib.common.OwnCloudClient;
+import com.owncloud.android.lib.common.OwnCloudClientFactory;
+import com.owncloud.android.lib.common.OwnCloudCredentialsFactory;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static String LOG_TAG = MainActivity.class.getSimpleName();
+
+    private Handler mHandler;
+
+    private OwnCloudClient mClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        mHandler = new Handler();
+
+        Uri serverUri = Uri.parse(getString(R.string.server_base_url));
+        mClient = OwnCloudClientFactory.createOwnCloudClient(serverUri, this, true);
+        mClient.setCredentials(
+                OwnCloudCredentialsFactory.newBasicCredentials(
+                        getString(R.string.username),
+                        getString(R.string.password)
+                )
+        );
     }
 
     @Override
