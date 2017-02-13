@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.owncloud.android.lib.common.OwnCloudClient;
 import com.owncloud.android.lib.common.OwnCloudClientFactory;
@@ -49,6 +50,21 @@ public class MainActivity extends AppCompatActivity {
                         getString(R.string.password)
                 )
         );
+    }
+
+
+    public void onClickHandler(View button) {
+    	switch (button.getId())	{
+	    	case R.id.button_refresh:
+	    		startRefresh();
+	    		break;
+            default:
+	    		Toast.makeText(this, R.string.youre_doing_it_wrong, Toast.LENGTH_SHORT).show();
+    	}
+    }
+
+    private void startRefresh() {
+
     }
 
     @Override

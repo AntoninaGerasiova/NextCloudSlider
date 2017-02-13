@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">NextCloudSlider</string>
     <string name="action_settings">Settings</string>
+
+
+    <!--Toast strings-->
+    <string name="youre_doing_it_wrong">You\'re doing it wrong</string>
 </resources>
